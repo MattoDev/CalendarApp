@@ -45,7 +45,6 @@ export const CalendarModal = () => {
 
   // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
   const onCloseModal = () => {
-    console.log("Cerrando Modal");
     setIsOpen(false);
   };
   return (
