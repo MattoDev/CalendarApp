@@ -97,7 +97,7 @@ export const CalendarModal = () => {
             dateFormat="Pp"
             showTimeSelect
             locale="es"
-            timeCaption=""
+            timeCaption="Hora"
           />
         </div>
 
