@@ -39,13 +39,9 @@ export const CalendarPage = () => {
     };
   };
 
-  const onDoubleClick = (event) => {
-    console.log({ onDoubleClick: event });
-  };
+  const onDoubleClick = (event) => {};
 
-  const onSelect = (event) => {
-    console.log({ click: event });
-  };
+  const onSelect = (event) => {};
 
   const onViewChanged = (event) => {
     localStorage.setItem("lastView", event);
