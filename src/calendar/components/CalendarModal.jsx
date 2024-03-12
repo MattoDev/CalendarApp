@@ -23,13 +23,13 @@ const customStyles = {
 };
 Modal.setAppElement("#root");
 export const CalendarModal = () => {
-  const { activeEvent } = useCalendarStore();
+  const { activeEvent, startSavingEvent } = useCalendarStore();
   const { isDateModalOpen, CloseDateModal } = useUiStore();
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const [formValues, setFormValues] = useState({
-    title: "Mateo ",
-    notes: "Fonseca",
+    title: "",
+    notes: "",
     start: new Date(),
     end: addHours(new Date(), 2),
   });
@@ -64,7 +64,7 @@ export const CalendarModal = () => {
     CloseDateModal();
   };
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     setFormSubmitted(true);
     const difference = differenceInSeconds(formValues.end, formValues.start);
@@ -76,6 +76,9 @@ export const CalendarModal = () => {
     console.log(formValues);
 
     //TODO:
+    await startSavingEvent(formValues);
+    CloseDateModal();
+    setFormSubmitted(false);
     //cerrar modal
     //Remover errores en pantalla
   };
